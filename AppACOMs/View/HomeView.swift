@@ -77,12 +77,15 @@ struct AvailableActivitiesListView: View {
             ScrollView {
                 ForEach(activities) { activity in
                     NavigationLink {
-                        // TODO: Change to DetailView()
-                        Text("Hi there!")
+                        AvailableActivityDetailView(activity: activity)
+                            .toolbar(.hidden, for: .tabBar) // To hide the tabBar.
                     } label: {
                         HomeActivityCardView(activity: activity)
                     }
                 }
+            }
+            .refreshable {
+                print("Refreshing...")
             }
             .padding(.horizontal)
         }
