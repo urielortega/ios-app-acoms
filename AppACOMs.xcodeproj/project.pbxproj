@@ -19,6 +19,7 @@
 		A41223002A78474200B681A2 /* Acom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41222FF2A78474200B681A2 /* Acom.swift */; };
 		A41223022A7852CD00B681A2 /* HomeView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41223012A7852CD00B681A2 /* HomeView-ViewModel.swift */; };
 		A455FCB52A7C2B8A00C257B1 /* AvailableActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455FCB42A7C2B8A00C257B1 /* AvailableActivityDetailView.swift */; };
+		A455FCB72A7C8CC700C257B1 /* ActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455FCB62A7C8CC700C257B1 /* ActivityDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		A41222FF2A78474200B681A2 /* Acom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Acom.swift; sourceTree = "<group>"; };
 		A41223012A7852CD00B681A2 /* HomeView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView-ViewModel.swift"; sourceTree = "<group>"; };
 		A455FCB42A7C2B8A00C257B1 /* AvailableActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableActivityDetailView.swift; sourceTree = "<group>"; };
+		A455FCB62A7C8CC700C257B1 /* ActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				A41222F32A783CF500B681A2 /* HomeView.swift */,
 				A455FCB42A7C2B8A00C257B1 /* AvailableActivityDetailView.swift */,
+				A455FCB62A7C8CC700C257B1 /* ActivityDetailView.swift */,
 				A41222F52A783D0400B681A2 /* AcomsView.swift */,
 				A41222F72A783D0E00B681A2 /* ProgressView.swift */,
 				A41222F92A783D2600B681A2 /* ProfileView.swift */,
@@ -185,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A455FCB72A7C8CC700C257B1 /* ActivityDetailView.swift in Sources */,
 				A455FCB52A7C2B8A00C257B1 /* AvailableActivityDetailView.swift in Sources */,
 				A41222F62A783D0400B681A2 /* AcomsView.swift in Sources */,
 				A41222F42A783CF500B681A2 /* HomeView.swift in Sources */,

@@ -20,11 +20,22 @@ struct Activity: Identifiable, Codable {
     let endDate: Date
     let responsible: String
     
+    var formattedCredits: String {
+        String(credits)
+    }
+    
+    var formattedParticipants: String {
+        String(participants)
+    }
+    
     static let example = Activity(
         code: "AC3EXPL",
         name: "ACOM 3 Example",
         creditType: acom3,
-        description: "This is an activity example for iOS App ACOMs",
+        description: """
+This is an activity example for iOS App ACOMs with a super long description.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis, mauris et gravida gravida, elit ante sagittis dui, sit amet venenatis tortor tellus maximus sapien. Ut a risus tempus, lacinia ipsum non, luctus ipsum. Ut lobortis scelerisque libero, quis ullamcorper leo elementum egestas. Mauris dapibus rhoncus vestibulum. Proin eu tincidunt risus. Nam id egestas sapien. Aenean dapibus, nisl non vestibulum molestie, odio erat lobortis erat, nec ullamcorper ligula odio et neque.
+""",
         participants: 11,
         credits: 1.5,
         department: "Example department",
