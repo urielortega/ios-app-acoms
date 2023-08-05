@@ -32,19 +32,19 @@ enum FilterType: String, CaseIterable, Identifiable {
 }
 
 enum SortType: String, CaseIterable, Identifiable {
-    case defaultOrder,
-         nameFromAToZ, nameFromZToA,
-         fromLatestToOldest, fromOldestToLatest
+    case nameFromAToZ, nameFromZToA,
+         fromLatestToOldest, fromOldestToLatest,
+         defaultOrder
 
     var id: Self { self }
     
     var name: String {
         switch self {
-        case .defaultOrder: return "Orden por defecto"
         case .nameFromAToZ: return "Ordenar por nombre (A-Z)"
         case .nameFromZToA: return "Ordenar por nombre (Z-A)"
         case .fromLatestToOldest: return "Ordenar de la más próxima a la más lejana"
         case .fromOldestToLatest: return "Ordenar de la más lejana a la más próxima"
+        case .defaultOrder: return "Orden por defecto"
         }
     }
 }
