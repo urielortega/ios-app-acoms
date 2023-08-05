@@ -39,8 +39,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis, m
         participants: 11,
         credits: 1.5,
         department: "Example department",
-        startDate: Date.now,
-        endDate: Date.now.addingTimeInterval(TimeInterval(20)),
+        startDate: Date.now.addingTimeInterval(TimeInterval(20_000)),
+        endDate: Date.now.addingTimeInterval(TimeInterval(120_000)),
         responsible: "Uriel Ortega"
     )
     

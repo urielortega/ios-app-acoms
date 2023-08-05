@@ -18,6 +18,8 @@
 		A41222FD2A7846AC00B681A2 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41222FC2A7846AB00B681A2 /* Activity.swift */; };
 		A41223002A78474200B681A2 /* Acom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41222FF2A78474200B681A2 /* Acom.swift */; };
 		A41223022A7852CD00B681A2 /* HomeView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41223012A7852CD00B681A2 /* HomeView-ViewModel.swift */; };
+		A41825182A7DCFFC0078B24B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41825172A7DCFFC0078B24B /* Enums.swift */; };
+		A418251C2A7DD1FE0078B24B /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418251B2A7DD1FE0078B24B /* Cards.swift */; };
 		A455FCB52A7C2B8A00C257B1 /* AvailableActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455FCB42A7C2B8A00C257B1 /* AvailableActivityDetailView.swift */; };
 		A455FCB72A7C8CC700C257B1 /* ActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455FCB62A7C8CC700C257B1 /* ActivityDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +37,8 @@
 		A41222FC2A7846AB00B681A2 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		A41222FF2A78474200B681A2 /* Acom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Acom.swift; sourceTree = "<group>"; };
 		A41223012A7852CD00B681A2 /* HomeView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView-ViewModel.swift"; sourceTree = "<group>"; };
+		A41825172A7DCFFC0078B24B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		A418251B2A7DD1FE0078B24B /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		A455FCB42A7C2B8A00C257B1 /* AvailableActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableActivityDetailView.swift; sourceTree = "<group>"; };
 		A455FCB62A7C8CC700C257B1 /* ActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +75,7 @@
 			children = (
 				A41222E52A7835BA00B681A2 /* AppACOMsApp.swift */,
 				A41222E72A7835BA00B681A2 /* ContentView.swift */,
+				A41825192A7DD0030078B24B /* Helpers */,
 				A41223032A7852D500B681A2 /* ViewModel */,
 				A41222FE2A7846B400B681A2 /* Model */,
 				A41222FB2A783D3100B681A2 /* View */,
@@ -93,7 +98,7 @@
 			children = (
 				A41222F32A783CF500B681A2 /* HomeView.swift */,
 				A455FCB42A7C2B8A00C257B1 /* AvailableActivityDetailView.swift */,
-				A455FCB62A7C8CC700C257B1 /* ActivityDetailView.swift */,
+				A418251A2A7DD1D00078B24B /* BaseViews */,
 				A41222F52A783D0400B681A2 /* AcomsView.swift */,
 				A41222F72A783D0E00B681A2 /* ProgressView.swift */,
 				A41222F92A783D2600B681A2 /* ProfileView.swift */,
@@ -116,6 +121,23 @@
 				A41223012A7852CD00B681A2 /* HomeView-ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A41825192A7DD0030078B24B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A41825172A7DCFFC0078B24B /* Enums.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A418251A2A7DD1D00078B24B /* BaseViews */ = {
+			isa = PBXGroup;
+			children = (
+				A455FCB62A7C8CC700C257B1 /* ActivityDetailView.swift */,
+				A418251B2A7DD1FE0078B24B /* Cards.swift */,
+			);
+			path = BaseViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A455FCB72A7C8CC700C257B1 /* ActivityDetailView.swift in Sources */,
+				A418251C2A7DD1FE0078B24B /* Cards.swift in Sources */,
 				A455FCB52A7C2B8A00C257B1 /* AvailableActivityDetailView.swift in Sources */,
 				A41222F62A783D0400B681A2 /* AcomsView.swift in Sources */,
 				A41222F42A783CF500B681A2 /* HomeView.swift in Sources */,
@@ -198,6 +221,7 @@
 				A41222E82A7835BA00B681A2 /* ContentView.swift in Sources */,
 				A41223002A78474200B681A2 /* Acom.swift in Sources */,
 				A41222FA2A783D2600B681A2 /* ProfileView.swift in Sources */,
+				A41825182A7DCFFC0078B24B /* Enums.swift in Sources */,
 				A41222E62A7835BA00B681A2 /* AppACOMsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

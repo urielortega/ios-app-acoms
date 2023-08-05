@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-struct Acom: Identifiable, Codable {
+struct Acom: Identifiable, Codable, Equatable {
+    static func == (lhs: Acom, rhs: Acom) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id: Int
     let name: String
     let description: String

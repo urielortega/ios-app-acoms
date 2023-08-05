@@ -77,10 +77,12 @@ struct ActivityDetailView<DetailsContent: View, ButtonContent: View>: View {
     }
 }
 
-//struct ActivityDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ActivityDetailView(activity: .example, buttonLabel: "Example action") {
-//            AttributeValueDetailView(attribute: "Example attribute", value: "Example value")
-//        }
-//    }
-//}
+struct ActivityDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        ActivityDetailView(
+            activity: .example,
+            moreDetailsView: AvailableActivityMoreDetailsView(activity: .example),
+            actionButton: Button("Example button") {  }
+        )
+    }
+}
