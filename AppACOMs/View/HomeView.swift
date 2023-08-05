@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State var selectedFilter: FilterType = .none
-    @State private var selectedSortOrder = SortType.defaultOrder
+    @State private var selectedSortOrder: SortType = .defaultOrder
     @State private var selectedSearchType: SearchType = .name
     
     @State private var searchText = ""
@@ -33,9 +33,9 @@ struct HomeView: View {
                         Menu("Filtrar por ACOM") {
                             Picker("Selecciona una opción de filtrado por ACOM", selection: $selectedFilter) {
                                 ForEach(
-                                    FilterType.allCases.filter { $0.name.contains("ACOM") }
+                                    FilterType.allCases.filter { $0.rawValue.contains("ACOM") }
                                 ) { acomFilterType in
-                                    Text(acomFilterType.name)
+                                    Text(acomFilterType.rawValue)
                                 }
                             }
                         }
@@ -44,19 +44,17 @@ struct HomeView: View {
                         Menu("Filtrar por departamento") {
                             Picker("Selecciona una opción de filtrado por departamento", selection: $selectedFilter) {
                                 ForEach(
-                                    FilterType.allCases.filter { $0.name.contains("Departamento") }
+                                    FilterType.allCases.filter { $0.rawValue.contains("Departamento") }
                                 ) { departmentFilterType in
-                                    Text(departmentFilterType.name)
+                                    Text(departmentFilterType.rawValue)
                                 }
                             }
                         }
                         
                         // No filtering option:
                         Picker("Opción sin filtro", selection: $selectedFilter) {
-                            ForEach(
-                                FilterType.allCases.filter { $0.name == "Sin filtro" }
-                            ) { filterType in
-                                Text(filterType.name)
+                            ForEach(FilterType.allCases.filter { $0 == .none }) { filterType in
+                                Text(filterType.rawValue)
                             }
                         }
                     } label: {
@@ -69,7 +67,7 @@ struct HomeView: View {
                     Menu {
                         Picker("Selecciona una opción de ordenamiento", selection: $selectedSortOrder) {
                             ForEach(SortType.allCases) { sortType in
-                                Text(sortType.name)
+                                Text(sortType.rawValue)
                             }
                         }
                     } label: {
@@ -166,7 +164,7 @@ struct SearchTypePicker: View {
     var body: some View {
         Picker("Modo de búsqueda", selection: $searchType) {
             ForEach(SearchType.allCases) { searchType in
-                Text(searchType.name)
+                Text(searchType.rawValue)
             }
         }
         .pickerStyle(.segmented)
