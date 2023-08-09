@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+struct AvailableActivityDetailView: View {
+    let activity: Activity
+    
+    var body: some View {
+        ActivityDetailView(
+            activity: activity,
+            moreDetailsView: AvailableActivityMoreDetailsView(activity: activity),
+            actionButton: AvailableActivityActionButton()
+        )
+    }
+}
+
 struct AvailableActivityMoreDetailsView: View {
     let activity: Activity
     
@@ -41,18 +53,6 @@ struct AvailableActivityActionButton: View {
                 .clipShape(Capsule())
                 .padding()
         }
-    }
-}
-
-struct AvailableActivityDetailView: View {
-    let activity: Activity
-    
-    var body: some View {
-        ActivityDetailView(
-            activity: activity,
-            moreDetailsView: AvailableActivityMoreDetailsView(activity: activity),
-            actionButton: AvailableActivityActionButton()
-        )
     }
 }
 

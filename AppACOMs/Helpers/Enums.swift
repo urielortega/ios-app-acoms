@@ -5,7 +5,7 @@
 //  Created by Uriel Ortega on 04/08/23.
 //
 
-import Foundation
+import SwiftUI
 
 enum FilterType: String, CaseIterable, Identifiable {
     case none = "Sin filtro"
@@ -37,5 +37,43 @@ enum SearchType: String, CaseIterable, Identifiable {
     case name = "Por nombre"
     case code = "Por código"
 
+    var id: Self { self }
+}
+
+enum RequestStatus: String, Codable {
+    case underReview = "En revisión"
+    case accepted = "Aceptada"
+    case declined = "Rechazada"
+    
+    var color: Color {
+        switch self {
+        case .underReview:
+            return .yellow
+        case .accepted:
+            return .green
+        case .declined:
+            return .red
+        }
+    }
+}
+
+enum DownloadFileStatus: String, Codable {
+    case available = "Constancia disponible"
+    case unavailable = "Constancia no disponible"
+    
+    var color: Color {
+        switch self {
+        case .available:
+            return .blue
+        case .unavailable:
+            return .gray
+        }
+    }
+}
+
+enum AcomsTab: String, CaseIterable, Identifiable {
+    case requested = "Solicitadas"
+    case completed = "Completadas"
+    
     var id: Self { self }
 }

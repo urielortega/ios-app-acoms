@@ -8,22 +8,16 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var selectedFilter: FilterType = .none
-    @State private var selectedSortOrder: SortType = .defaultOrder
-    @State private var selectedSearchType: SearchType = .name
-    
-    @State private var searchText = ""
-    
     @StateObject private var viewModel = ViewModel()
         
     var body: some View {
         NavigationStack {
             AvailableActivitiesListView(
                 activities: filteredActivities,
-                searchText: $searchText,
-                searchType: $selectedSearchType
+                searchText: $viewModel.searchText,
+                searchType: $viewModel.selectedSearchType
             )
-            .searchable(text: $searchText, prompt: "Buscar")
+            .searchable(text: $viewModel.searchText, prompt: "Buscar")
             .navigationTitle("Inicio")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -31,7 +25,10 @@ struct HomeView: View {
                     Menu {
                         // ACOM filtering options:
                         Menu("Filtrar por ACOM") {
-                            Picker("Selecciona una opción de filtrado por ACOM", selection: $selectedFilter) {
+                            Picker(
+                                "Selecciona una opción de filtrado por ACOM",
+                                selection: $viewModel.selectedFilter
+                            ) {
                                 ForEach(
                                     FilterType.allCases.filter { $0.rawValue.contains("ACOM") }
                                 ) { acomFilterType in
@@ -42,7 +39,10 @@ struct HomeView: View {
                         
                         // Departament filtering options:
                         Menu("Filtrar por departamento") {
-                            Picker("Selecciona una opción de filtrado por departamento", selection: $selectedFilter) {
+                            Picker(
+                                "Selecciona una opción de filtrado por departamento",
+                                selection: $viewModel.selectedFilter
+                            ) {
                                 ForEach(
                                     FilterType.allCases.filter { $0.rawValue.contains("Departamento") }
                                 ) { departmentFilterType in
@@ -52,7 +52,10 @@ struct HomeView: View {
                         }
                         
                         // No filtering option:
-                        Picker("Opción sin filtro", selection: $selectedFilter) {
+                        Picker(
+                            "Opción sin filtro",
+                            selection: $viewModel.selectedFilter
+                        ) {
                             ForEach(FilterType.allCases.filter { $0 == .none }) { filterType in
                                 Text(filterType.rawValue)
                             }
@@ -65,7 +68,10 @@ struct HomeView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     // Sorting options:
                     Menu {
-                        Picker("Selecciona una opción de ordenamiento", selection: $selectedSortOrder) {
+                        Picker(
+                            "Selecciona una opción de ordenamiento",
+                            selection: $viewModel.selectedSortOrder
+                        ) {
                             ForEach(SortType.allCases) { sortType in
                                 Text(sortType.rawValue)
                             }
@@ -82,7 +88,7 @@ struct HomeView: View {
         var result: [Activity]
 
         // Sorting:
-        switch(selectedSortOrder) {
+        switch(viewModel.selectedSortOrder) {
         case .defaultOrder:
             result = viewModel.activities
         case .nameFromAToZ:
@@ -96,7 +102,7 @@ struct HomeView: View {
         }
         
         // Filtering:
-        switch(selectedFilter) {
+        switch(viewModel.selectedFilter) {
         case .acom1:
             result = result.filter { $0.creditType == acom1}
         case .acom2:
@@ -116,19 +122,19 @@ struct HomeView: View {
         }
         
         // Search:
-        if searchText.isEmpty {
+        if viewModel.searchText.isEmpty {
             return result
         } else {
-            if selectedSearchType == .name {
-                return result.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            if viewModel.selectedSearchType == .name {
+                return result.filter { $0.name.localizedCaseInsensitiveContains(viewModel.searchText) }
             } else {
-                return result.filter { $0.code.localizedCaseInsensitiveContains(searchText) }
+                return result.filter { $0.code.localizedCaseInsensitiveContains(viewModel.searchText) }
             }
         }
     }
 }
 
-struct HomeActivityCardView: View {
+struct AvailableActivityCardView: View {
     let activity: Activity
     
     var body: some View {
@@ -197,10 +203,11 @@ struct AvailableActivitiesListView: View {
                 } else {
                     ForEach(activities) { activity in
                         NavigationLink {
+                            #warning("The toolbar modifier might freeze the app.")
                             AvailableActivityDetailView(activity: activity)
-                                .toolbar(.hidden, for: .tabBar) // To hide the tabBar.
+                                 // .toolbar(.hidden, for: .tabBar) // To hide the tabBar.
                         } label: {
-                            HomeActivityCardView(activity: activity)
+                            AvailableActivityCardView(activity: activity)
                         }
                     }
                 }
@@ -221,6 +228,6 @@ struct HomeView_Previews: PreviewProvider {
 
 struct Previews_HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeActivityCardView(activity: .example)
+        AvailableActivityCardView(activity: .example)
     }
 }

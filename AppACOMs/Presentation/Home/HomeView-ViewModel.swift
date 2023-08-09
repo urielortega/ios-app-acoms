@@ -10,5 +10,11 @@ import Foundation
 extension HomeView {
     @MainActor class ViewModel: ObservableObject {
         @Published var activities = Activity.examples
+        
+        @Published var selectedFilter: FilterType = .none
+        @Published var selectedSortOrder: SortType = .defaultOrder
+        @Published var selectedSearchType: SearchType = .name
+        
+        @Published var searchText = ""
     }
 }
