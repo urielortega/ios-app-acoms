@@ -45,6 +45,9 @@ struct AvailableActivityActionButton: View {
     var body: some View {
         Button {
             // Request register.
+            
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
         } label: {
             Text("Solicitar registro")
                 .foregroundColor(.white)

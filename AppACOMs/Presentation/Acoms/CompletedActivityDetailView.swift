@@ -20,7 +20,7 @@ struct CompletedActivityDetailView: View {
                 showSafari: $showSafari
             )
         )
-        .fullScreenCover(isPresented: $showSafari) {
+        .sheet(isPresented: $showSafari) {
             SFSafariViewWrapper(url: URL(string: completedActivity.fileRoute)!)
         }
     }
